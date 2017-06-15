@@ -1,13 +1,20 @@
 Usage:
 
-	1. Enter Container
+	1. First Enter Container
 		sudo docker run -it buildroot-docker:latest /bin/bash
 
 	2. make
-		cd /home/chenzilin/buildroot/
-		make raspberrypi3_defconfig O=/home/chenzilin/buildroot/output/raspberrypi3
-		cd /home/chenzilin/buildroot/output/raspberrypi3
+		make raspberrypi3_base_defconfig O=/home/chenzilin/buildroot/output/raspberrypi3_base
+		cd /home/chenzilin/buildroot/output/raspberrypi3_base
 		make
+
+		make raspberrypi3_qt5_defconfig O=/home/chenzilin/buildroot/output/raspberrypi3_qt5
+		cd /home/chenzilin/buildroot/output/raspberrypi3_qt5
+		make
+
+	3. Enter Exited Container
+		sudo docker ps -a
+		sudo docker start -ia 57c5d096ec6b
 
 
 Reference:
@@ -41,3 +48,9 @@ List Containers:
 Remove Container:
 
 	sudo docker rm d48b68282c03
+
+Patitial Tar:
+
+	tar cvjfa - dl/ |split -b 85m - dl.tar.bz2.
+
+	cat dl.tar.bz2.a* | tar xvj
