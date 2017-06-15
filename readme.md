@@ -6,11 +6,11 @@ Usage:
 	2. make
 		make raspberrypi3_base_defconfig O=/home/chenzilin/buildroot/output/raspberrypi3_base
 		cd /home/chenzilin/buildroot/output/raspberrypi3_base
-		make
+		make or make menuconfig
 
 		make raspberrypi3_qt5_defconfig O=/home/chenzilin/buildroot/output/raspberrypi3_qt5
 		cd /home/chenzilin/buildroot/output/raspberrypi3_qt5
-		make
+		make or make menuconfig
 
 	3. Enter Exited Container
 		sudo docker ps -a
