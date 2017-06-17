@@ -7,10 +7,12 @@ Usage:
 		make raspberrypi3_base_defconfig O=/home/chenzilin/buildroot/output/raspberrypi3_base
 		cd /home/chenzilin/buildroot/output/raspberrypi3_base
 		make or make menuconfig
+		make savedefconfig BR2_DEFCONFIG=configs/raspberrypi3_base_defconfig
 
 		make raspberrypi3_qt5_defconfig O=/home/chenzilin/buildroot/output/raspberrypi3_qt5
 		cd /home/chenzilin/buildroot/output/raspberrypi3_qt5
 		make or make menuconfig
+		make savedefconfig BR2_DEFCONFIG=configs/raspberrypi3_qt5_defconfig
 
 	3. Enter Exited Container
 		sudo docker ps -a
@@ -49,7 +51,7 @@ Remove Container:
 
 	sudo docker rm d48b68282c03
 
-Patitial Tar:
+Partition Tar:
 
 	tar cvjfa - dl/ |split -b 85m - dl.tar.bz2.
 

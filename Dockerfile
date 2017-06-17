@@ -18,7 +18,9 @@ RUN cd /home/chenzilin && \
     tar xzvfpa buildroot-2017.05.tar.gz && mv buildroot-2017.05 buildroot && rm buildroot-2017.05.tar.gz && \
     cd buildroot/ && git init . && git add -A . && git commit -am "initial commit based on v2017.05"
 
-COPY configs/*_defconfig /home/chenzilin/buildroot/configs/
+RUN mkdir /home/chenzilin/patches
+COPY patches/*.patch /home/chenzilin/patches/
+RUN git am  /home/chenzilin/patches/*.patch && rm -rf /home/chenzilin/patches
 
 COPY dl/dl.tar.bz2.* /home/chenzilin/buildroot/
 RUN cd /home/chenzilin/buildroot/ && cat dl.tar.bz2.* | tar xvj && rm dl.tar.bz2.*
