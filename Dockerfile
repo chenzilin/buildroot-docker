@@ -20,7 +20,7 @@ RUN cd /home/chenzilin && \
 
 RUN mkdir /home/chenzilin/patches
 COPY patches/*.patch /home/chenzilin/patches/
-RUN git am  /home/chenzilin/patches/*.patch && rm -rf /home/chenzilin/patches
+RUN cd /home/chenzilin/buildroot/ && git am  /home/chenzilin/patches/*.patch && rm -rf /home/chenzilin/patches
 
 COPY dl/dl.tar.bz2.* /home/chenzilin/buildroot/
 RUN cd /home/chenzilin/buildroot/ && cat dl.tar.bz2.* | tar xvj && rm dl.tar.bz2.*
